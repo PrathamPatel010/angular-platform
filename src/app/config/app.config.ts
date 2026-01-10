@@ -1,10 +1,10 @@
-import { ApplicationConfig, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter } from "@angular/router";
-import { routes } from "../app.routes";
-import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
-import { providePrimeNG } from "primeng/config";
-import Aura from "@primeng/themes/aura";
-import { FilterMatchMode } from "primeng/api";
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { routes } from '../app.routes';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
+import { FilterMatchMode } from 'primeng/api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,20 +12,20 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     providePrimeNG({
-      inputVariant: "filled",
+      inputVariant: 'filled',
       theme: {
         preset: Aura,
         options: {
-          prefix: "p",
-          darkModeSelector: ".my-app-dark",
+          prefix: 'p',
+          darkModeSelector: '.my-app-dark',
           cssLayer: {
-            name: "primeng",
-            order: "tailwind-base, primeng, tailwind-utilities",
+            name: 'primeng',
+            order: 'tailwind-base, primeng, tailwind-utilities',
           },
         },
       },
       csp: {
-        nonce: "...",
+        nonce: '...',
       },
       zIndex: {
         modal: 1100, // dialog, sidebar
