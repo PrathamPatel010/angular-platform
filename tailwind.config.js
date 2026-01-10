@@ -1,8 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+import PrimeUI from "tailwindcss-primeui";
+
+export default {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {},
   },
-  plugins: [],
+  darkMode: ["selector", '[class~="my-app-dark"]'],
+  plugins: [PrimeUI],
 };
