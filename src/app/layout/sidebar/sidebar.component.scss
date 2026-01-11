@@ -1,0 +1,10 @@
+/* sidebar.component.scss */
+:host ::ng-deep .p-panelmenu {
+  border: none;
+  gap: 1px 1px;
+}
+
+:host ::ng-deep .p-panelmenu .p-panelmenu-panel {
+  border: none;
+  box-shadow: none;
+}

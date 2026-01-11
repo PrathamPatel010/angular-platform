@@ -1,38 +1,69 @@
-<aside class="w-64 h-screen bg-gray-900 text-white flex flex-col">
-  <!-- Top: Logo -->
-  <div class="h-16 flex items-center px-4 border-b border-gray-800">
-    <span class="text-xl font-semibold">MyApp</span>
+<aside class="flex h-screen w-60 flex-col border-r bg-white">
+  <!-- 1️⃣ Logo / App Name -->
+  <div class="flex h-14 items-center border-b px-4 text-lg font-semibold">MyApp</div>
+
+  <!-- 2️⃣ Navigation (scrollable) -->
+  <div class="flex-1 overflow-y-auto px-1 py-3">
+    <p-panelMenu [model]="items" class="w-full border-none p-0">
+      <ng-template #item let-item>
+        <a pRipple class="flex w-full items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100">
+          <!-- Left icon -->
+          <i *ngIf="item.icon" [class]="item.icon + ' text-gray-500'"></i>
+
+          <!-- Label -->
+          <span class="text-sm">
+            {{ item.label }}
+          </span>
+
+          <!-- Spacer pushes chevron to right -->
+          <span class="flex-1"></span>
+
+          <!-- Right-side chevron -->
+          <i
+            *ngIf="item.items?.length"
+            class="pi text-xs text-gray-400 transition-transform duration-200"
+            [ngClass]="{
+              'pi-chevron-down': item.expanded,
+              'pi-chevron-right': !item.expanded,
+            }"
+          ></i>
+        </a>
+      </ng-template>
+    </p-panelMenu>
   </div>
 
-  <!-- Middle: Menu (scrollable if needed) -->
-  <nav class="flex-1 overflow-y-auto px-2 py-3 space-y-1">
-    <div class="px-3 py-2 rounded hover:bg-gray-800 cursor-pointer">Dashboard</div>
+  <!-- 3️⃣ User section (fixed bottom) -->
+  <div class="relative border-t p-3">
+    <button
+      type="button"
+      class="flex w-full items-center gap-3 rounded-md px-2 py-2 hover:bg-gray-100"
+      (click)="toggleUserMenu($event)"
+    >
+      <img src="https://i.pravatar.cc/32" alt="User" class="h-8 w-8 rounded-full" />
 
-    <div class="px-3 py-2 rounded hover:bg-gray-800 cursor-pointer">Reports</div>
-
-    <div>
-      <div class="px-3 py-2 rounded hover:bg-gray-800 cursor-pointer">Settings</div>
-      <div class="ml-4 mt-1 space-y-1">
-        <div class="px-3 py-1 text-sm hover:bg-gray-800 rounded">Profile</div>
-        <div class="px-3 py-1 text-sm hover:bg-gray-800 rounded">Preferences</div>
+      <div class="flex flex-1 flex-col text-left">
+        <span class="text-sm font-medium">John Doe</span>
+        <span class="text-xs text-gray-500">Administrator</span>
       </div>
-    </div>
-  </nav>
 
-  <!-- Bottom: User section (fixed bottom) -->
-  <div class="border-t border-gray-800 p-3 relative">
-    <div class="flex items-center justify-between cursor-pointer">
-      <div class="flex items-center space-x-2">
-        <div class="h-8 w-8 rounded-full bg-gray-600"></div>
-        <span class="text-sm">John Doe</span>
-      </div>
-      <span class="text-xs">▲</span>
-    </div>
+      <!-- Chevron on the right -->
+      <i
+        class="pi text-xs text-gray-400 transition-transform duration-200"
+        [ngClass]="{
+          'pi-chevron-down': isUserMenuOpen,
+          'pi-chevron-up': !isUserMenuOpen,
+        }"
+      ></i>
+    </button>
 
-    <!-- Upward dropdown -->
-    <div class="absolute bottom-14 left-3 right-3 bg-gray-800 rounded shadow-lg">
-      <div class="px-3 py-2 hover:bg-gray-700 text-sm cursor-pointer">Settings</div>
-      <div class="px-3 py-2 hover:bg-gray-700 text-sm cursor-pointer">Logout</div>
-    </div>
+    <!-- PrimeNG menu -->
+    <p-menu
+      #userMenu
+      [model]="userMenuItems"
+      [popup]="true"
+      appendTo="body"
+      (onShow)="isUserMenuOpen = true"
+      (onHide)="isUserMenuOpen = false"
+    ></p-menu>
   </div>
 </aside>
