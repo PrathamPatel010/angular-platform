@@ -1,59 +1,111 @@
-# AngularPlatform
+# Angular Platform
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
+An enterprise-ready **Angular 19 platform template** built with **PrimeNG**, **Tailwind CSS**, and modern frontend tooling.  
+This repository is designed to be reused as a base for large-scale applications across multiple domains.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tech Stack
 
-```bash
-ng serve
+- Angular 19
+- PrimeNG 19
+- Tailwind CSS v3
+- TypeScript (strict mode enabled)
+- ESLint (Flat Config – latest)
+- Prettier (with Tailwind class sorting)
+- Husky + lint-staged (pre-commit checks)
+
+---
+
+## 🎯 Purpose
+
+This project serves as:
+
+- A **reusable Angular platform template**
+- A **foundation for enterprise-scale applications**
+- A **clean, opinionated Angular architecture**
+- A **portfolio-grade codebase** showcasing best practices
+
+It is intentionally **domain-agnostic** and can be adapted for:
+
+- Enterprise admin panels
+- SaaS applications
+- Internal tools
+- Healthcare / Pharma systems
+- Business workflow applications
+
+---
+
+## 🧱 Features (v1)
+
+### Application Layout
+
+- Fixed sidebar (full height)
+  - App logo & name (top)
+  - Collapsible multi-level navigation
+  - User section (bottom) with action menu
+- Header (content area only)
+- Router-driven layout using `router-outlet`
+
+### UI & Styling
+
+- PrimeNG components
+- Tailwind CSS for layout and utilities
+- Consistent spacing and typography
+- Tailwind class sorting via Prettier
+
+### Code Quality & Tooling
+
+- Strict TypeScript configuration
+- ESLint for TypeScript, Angular, and templates
+- Prettier formatting enforced
+- Pre-commit hooks with Husky
+- lint-staged for staged-file validation
+- Path aliases configured
+
+---
+
+## 📁 Source Code Structure
+
+```text
+src/
+ ├── app/
+ │   ├── config/        # App-level configuration, providers, constants, environment bindings
+ │   ├── core/          # Core singleton services, guards, interceptors
+ │   ├── features/      # Feature modules (lazy-loaded, domain-specific)
+ │   ├── layout/        # Application layout (sidebar, header, footer, shells)
+ │   ├── shared/        # Reusable components, directives, pipes, utilities
+ │   ├── ui/            # Design-system level UI components & wrappers
+ │   ├── app.routes.ts  # Application routes
+ │   └── app.component.*
+ ├── assets/
+ ├── environments/
+ └── styles/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Scripts
 
 ```bash
-ng generate component component-name
+npm start        # Start development server
+npm run lint     # Run ESLint
+npm run format   # Format entire project using Prettier
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Pre-commit:
 
-```bash
-ng generate --help
-```
+- Formats staged files
+- Fixes lint issues
+- Blocks commits on violations
 
-## Building
+---
 
-To build the project run:
+## 📌 Versions
 
-```bash
-ng build
-```
+- Angular CLI: 19.x
+- Node.js: 20.x
+- PrimeNG: 19.x
+- Tailwind CSS: 3.x
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
