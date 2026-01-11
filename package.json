@@ -15,8 +15,11 @@
   },
   "lint-staged": {
     "*.{ts,html}": [
-      "npm run format",
+      "prettier --write",
       "eslint --fix"
+    ],
+    "*.{json,md,scss,css}": [
+      "prettier --write"
     ]
   },
   "private": true,
