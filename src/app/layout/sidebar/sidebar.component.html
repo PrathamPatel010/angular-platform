@@ -6,19 +6,23 @@
   <div class="flex-1 overflow-y-auto px-1 py-3">
     <p-panelMenu [model]="items" class="w-full border-none p-0">
       <ng-template #item let-item>
-        <a pRipple class="flex w-full items-center gap-2 rounded-md px-3 py-2 hover:bg-gray-100">
+        <a
+          pRipple
+          class="flex w-full items-center gap-2 rounded-md px-3 py-2 transition-colors"
+          [routerLink]="item.link"
+          routerLinkActive="bg-gray-100 font-medium"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
           <!-- Left icon -->
           <i *ngIf="item.icon" [class]="item.icon + ' text-gray-500'"></i>
 
           <!-- Label -->
-          <span class="text-sm">
-            {{ item.label }}
-          </span>
+          <span class="text-sm">{{ item.label }}</span>
 
-          <!-- Spacer pushes chevron to right -->
+          <!-- Spacer -->
           <span class="flex-1"></span>
 
-          <!-- Right-side chevron -->
+          <!-- Chevron (only if children exist) -->
           <i
             *ngIf="item.items?.length"
             class="pi text-xs text-gray-400 transition-transform duration-200"

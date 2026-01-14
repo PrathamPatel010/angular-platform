@@ -8,12 +8,23 @@ export const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'home',
+        redirectTo: 'dashboard',
         pathMatch: 'full',
       },
       {
-        path: 'home',
-        loadComponent: () => import('./features/home/home.component').then((c) => c.HomeComponent),
+        path: 'dashboard',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard.component').then((c) => c.DashboardComponent),
+      },
+      {
+        path: 'masters/users',
+        loadComponent: () =>
+          import('./features/master/users/users.component').then((m) => m.UsersComponent),
+      },
+      {
+        path: 'masters/products',
+        loadComponent: () =>
+          import('./features/master/products/products.component').then((m) => m.ProductsComponent),
       },
     ],
   },
