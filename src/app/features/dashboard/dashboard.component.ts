@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { StorageService } from '@app/core/services/storage.service';
+import { CommonService } from '@app/core/services/common.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +8,8 @@ import { StorageService } from '@app/core/services/storage.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
-  storageService: StorageService = inject(StorageService);
+  commonService: CommonService = inject(CommonService);
   ngOnInit(): void {
-    this.storageService.set('currentPage', 'Dashboard');
+    this.commonService.storageService.set('currentPage', 'Dashboard');
   }
 }

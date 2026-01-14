@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { StorageService } from '@app/core/services/storage.service';
+import { CommonService } from '@app/core/services/common.service';
 
 @Component({
   selector: 'app-products',
@@ -8,8 +8,8 @@ import { StorageService } from '@app/core/services/storage.service';
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent implements OnInit {
-  storageService: StorageService = inject(StorageService);
+  commonService: CommonService = inject(CommonService);
   ngOnInit(): void {
-    this.storageService.set('currentPage', 'Products');
+    this.commonService.storageService.set('currentPage', 'Products');
   }
 }
