@@ -1,67 +1,36 @@
 # Angular Platform
 
-An enterprise-ready **Angular 19 platform template** built with **PrimeNG**, **Tailwind CSS**, and modern frontend tooling.  
-This repository is designed to be reused as a base for large-scale applications across multiple domains.
+A modern, scalable Angular application template built with **Angular 19**, **PrimeNG**, and **Tailwind CSS**, focused on clean architecture, developer experience, and long-term maintainability.
+
+This repository serves as a **starter platform** for enterprise-grade Angular applications and can be reused across projects.
 
 ---
 
-## 🚀 Tech Stack
+## ✨ Features
 
-- Angular 19
-- PrimeNG 19
-- Tailwind CSS v3
-- TypeScript (strict mode enabled)
-- ESLint (Flat Config – latest)
-- Prettier (with Tailwind class sorting)
-- Husky + lint-staged (pre-commit checks)
-
----
-
-## 🎯 Purpose
-
-This project serves as:
-
-- A **reusable Angular platform template**
-- A **foundation for enterprise-scale applications**
-- A **clean, opinionated Angular architecture**
-- A **portfolio-grade codebase** showcasing best practices
-
-It is intentionally **domain-agnostic** and can be adapted for:
-
-- Enterprise admin panels
-- SaaS applications
-- Internal tools
-- Healthcare / Pharma systems
-- Business workflow applications
+- Angular 19 with standalone APIs
+- PrimeNG 19 UI components
+- Tailwind CSS v3 for utility-first styling
+- Modern ESLint flat config
+- Prettier with Tailwind class sorting
+- Husky + lint-staged for commit safety
+- Scalable folder structure
+- Reusable core services
+- Centralized API handling
+- Clean layout system (Sidebar + Header + Content)
+- Strong typing (no `any` usage)
 
 ---
 
-## 🧱 Features (v1)
+## 🧱 Tech Stack
 
-### Application Layout
-
-- Fixed sidebar (full height)
-  - App logo & name (top)
-  - Collapsible multi-level navigation
-  - User section (bottom) with action menu
-- Header (content area only)
-- Router-driven layout using `router-outlet`
-
-### UI & Styling
-
-- PrimeNG components
-- Tailwind CSS for layout and utilities
-- Consistent spacing and typography
-- Tailwind class sorting via Prettier
-
-### Code Quality & Tooling
-
-- Strict TypeScript configuration
-- ESLint for TypeScript, Angular, and templates
-- Prettier formatting enforced
-- Pre-commit hooks with Husky
-- lint-staged for staged-file validation
-- Path aliases configured
+- **Framework**: Angular 19
+- **UI Library**: PrimeNG 19
+- **Styling**: Tailwind CSS v3
+- **Linting**: ESLint (flat config)
+- **Formatting**: Prettier + Tailwind plugin
+- **Git Hooks**: Husky + lint-staged
+- **Package Manager**: npm
 
 ---
 
@@ -70,12 +39,11 @@ It is intentionally **domain-agnostic** and can be adapted for:
 ```text
 src/
  ├── app/
- │   ├── config/        # App-level configuration, providers, constants, environment bindings
- │   ├── core/          # Core singleton services, guards, interceptors
- │   ├── features/      # Feature modules (lazy-loaded, domain-specific)
- │   ├── layout/        # Application layout (sidebar, header, footer, shells)
- │   ├── shared/        # Reusable components, directives, pipes, utilities
- │   ├── ui/            # Design-system level UI components & wrappers
+ │   ├── config/        # App-level configuration
+ │   ├── core/          # Core singleton services
+ │   ├── layout/        # Header, sidebar, footer, layout shell
+ │   ├── shared/        # Shared models, enums, utilities
+ │   ├── ui/            # UI-related state & helpers
  │   ├── app.routes.ts  # Application routes
  │   └── app.component.*
  ├── assets/
@@ -83,29 +51,82 @@ src/
  └── styles/
 ```
 
+> The structure is intentionally flexible and evolves as features are added.
+
 ---
 
-## 🛠️ Scripts
+## 🧪 Code Quality
+
+- ESLint enforced on commit
+- Prettier formatting with Tailwind class sorting
+- No commits allowed if linting fails
+- Consistent coding standards across the project
+
+---
+
+## 🚀 Getting Started
+
+### Install dependencies
 
 ```bash
-npm start        # Start development server
-npm run lint     # Run ESLint
-npm run format   # Format entire project using Prettier
+npm install
 ```
 
-Pre-commit:
+### Run development server
 
-- Formats staged files
-- Fixes lint issues
-- Blocks commits on violations
+```bash
+ng serve
+```
+
+### Lint project
+
+```bash
+npm run lint
+```
+
+### Format code
+
+```bash
+npm run format
+```
 
 ---
 
-## 📌 Versions
+## 📦 Versioning
 
-- Angular CLI: 19.x
-- Node.js: 20.x
-- PrimeNG: 19.x
-- Tailwind CSS: 3.x
+This project follows **semantic versioning**.
+
+- `v1.0.0` – Stable base platform template
 
 ---
+
+## 🔒 License
+
+This project is **All Rights Reserved**.
+
+You may not use, copy, modify, or distribute this code without explicit permission from the author.
+
+See `LICENSE.md` for details.
+
+---
+
+## 🧭 Philosophy
+
+This repository is intentionally kept **minimal but solid**.
+
+New features are added **only when required**, ensuring:
+
+- No over-engineering
+- Clean learning curve
+- Maximum reusability
+
+---
+
+## 📌 Author
+
+Created and maintained by **Pratham Patel**.
+
+---
+
+> This repository is meant to evolve with real project needs.
+> Use it as a foundation, not a constraint.
