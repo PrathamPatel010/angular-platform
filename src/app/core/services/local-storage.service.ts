@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class StorageService {
+export class LocalStorageService {
   get<T>(key: string): T | null {
     const item = localStorage.getItem(key);
     return item ? (JSON.parse(item) as T) : null;

@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { CommonService } from '../services/common.service';
 import { environment } from '@env/environment.development';
-import { ApiResponse } from '@app/shared/models/api-response.model';
+import { ApiResponse } from '@app/core/http/api.model';
 import { Observable } from 'rxjs';
 
 @Injectable({

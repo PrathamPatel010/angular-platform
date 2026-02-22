@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { NotificationService } from './notification.service';
 import { LoggerService } from './logger.service';
-import { StorageService } from './storage.service';
+import { LocalStorageService } from './local-storage.service';
 import { UiStateService } from './ui-state.service';
 
 @Injectable({
@@ -10,6 +10,6 @@ import { UiStateService } from './ui-state.service';
 export class CommonService {
   loggerService: LoggerService = inject(LoggerService);
   notificationService: NotificationService = inject(NotificationService);
-  storageService: StorageService = inject(StorageService);
+  localStorageService: LocalStorageService = inject(LocalStorageService);
   uiStateService: UiStateService = inject(UiStateService);
 }

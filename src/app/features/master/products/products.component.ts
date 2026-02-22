@@ -10,6 +10,6 @@ import { CommonService } from '@app/core/services/common.service';
 export class ProductsComponent implements OnInit {
   commonService: CommonService = inject(CommonService);
   ngOnInit(): void {
-    this.commonService.storageService.set('currentPage', 'Products');
+    this.commonService.localStorageService.set('currentPage', 'Products');
   }
 }

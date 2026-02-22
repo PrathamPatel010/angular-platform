@@ -17,14 +17,9 @@ export const routes: Routes = [
           import('./features/dashboard/dashboard.component').then((c) => c.DashboardComponent),
       },
       {
-        path: 'masters/users',
-        loadComponent: () =>
-          import('./features/master/users/users.component').then((m) => m.UsersComponent),
-      },
-      {
-        path: 'masters/products',
-        loadComponent: () =>
-          import('./features/master/products/products.component').then((m) => m.ProductsComponent),
+        path: 'masters',
+        loadChildren: () =>
+          import('./features/master/master-routing.module').then((m) => m.MasterRoutingModule),
       },
     ],
   },

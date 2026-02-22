@@ -10,6 +10,6 @@ import { CommonService } from '@app/core/services/common.service';
 export class DashboardComponent implements OnInit {
   commonService: CommonService = inject(CommonService);
   ngOnInit(): void {
-    this.commonService.storageService.set('currentPage', 'Dashboard');
+    this.commonService.localStorageService.set('currentPage', 'Dashboard');
   }
 }
