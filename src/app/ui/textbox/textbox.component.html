@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+  <!-- Label -->
+  <label *ngIf="label" class="font-medium">
+    {{ label }}
+    <span *ngIf="required" class="text-red-500">*</span>
+  </label>
+
+  <input
+    pInputText
+    [type]="type"
+    [formControlName]="controlName"
+    [placeholder]="placeholder"
+    class="w-full"
+    [ngClass]="{ 'border-1 border-red-500': showError }"
+  />
+
+  <!-- Errors -->
+  <small *ngIf="showError" class="block text-red-500">
+    <ng-container *ngIf="control?.errors?.['required']"> {{ label }} is required </ng-container>
+
+    <ng-container *ngIf="control?.errors?.['minlength']">
+      Minimum {{ control?.errors?.['minlength'].requiredLength }} characters
+    </ng-container>
+
+    <ng-container *ngIf="control?.errors?.['email']"> Invalid email address </ng-container>
+  </small>
+</form>

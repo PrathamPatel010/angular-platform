@@ -3,13 +3,27 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonService } from '@app/core/services/common.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CardModule } from 'primeng/card';
-import { FormFieldComponent } from '@app/ui/form-field/form-field.component';
 import { UserForm } from './models/user.model';
 import { ButtonModule } from 'primeng/button';
+import { TextboxComponent } from '@app/ui/textbox/textbox.component';
+import { PasswordComponent } from '@app/ui/password/password.component';
+import { SelectComponent } from '@app/ui/select/select.component';
+import { MultiselectComponent } from '@app/ui/multiselect/multiselect.component';
+import { TextareaComponent } from '@app/ui/textarea/textarea.component';
 
 @Component({
   selector: 'app-users',
-  imports: [CommonModule, ReactiveFormsModule, CardModule, FormFieldComponent, ButtonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    CardModule,
+    ButtonModule,
+    TextboxComponent,
+    PasswordComponent,
+    SelectComponent,
+    MultiselectComponent,
+    TextareaComponent,
+  ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss',
 })

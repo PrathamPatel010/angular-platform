@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+  <!-- Label -->
+  <label *ngIf="label" class="font-medium">
+    {{ label }}
+    <span *ngIf="required" class="text-red-500">*</span>
+  </label>
+
+  <!-- Select -->
+  <p-select
+    [formControlName]="controlName"
+    [showClear]="true"
+    [filter]="true"
+    [options]="options"
+    [placeholder]="placeholder"
+    class="w-full"
+    [ngClass]="{ 'border-1 border-red-500': showError }"
+  ></p-select>
+
+  <!-- Errors -->
+  <small *ngIf="showError" class="block text-red-500">
+    <ng-container *ngIf="control?.errors?.['required']"> {{ label }} is required </ng-container>
+  </small>
+</div>

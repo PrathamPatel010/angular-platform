@@ -1,60 +1,71 @@
 <p-card header="Create User" class="mx-auto mt-6 max-w-xl shadow-md">
   <form [formGroup]="userForm" (ngSubmit)="submit()" class="flex flex-col gap-4">
-    <app-form-field
-      [form]="userForm"
-      controlName="username"
-      label="Username"
-      type="text"
-      placeholder="Enter username"
-      [required]="true"
-    />
+    <!-- Form Fields -->
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Username -->
+      <app-textbox
+        [form]="userForm"
+        controlName="username"
+        label="Username"
+        type="text"
+        placeholder="Enter username"
+        [required]="true"
+      />
 
-    <app-form-field
-      [form]="userForm"
-      controlName="email"
-      label="Email"
-      type="text"
-      placeholder="Enter email"
-      [required]="true"
-    />
+      <!-- Email -->
+      <app-textbox
+        [form]="userForm"
+        controlName="email"
+        label="Email"
+        type="text"
+        placeholder="Enter email"
+        [required]="true"
+      />
 
-    <app-form-field
-      [form]="userForm"
-      controlName="password"
-      label="Password"
-      type="password"
-      placeholder="Enter password"
-      [required]="true"
-    />
+      <!-- Role -->
+      <app-select
+        [form]="userForm"
+        controlName="role"
+        label="Role"
+        type="dropdown"
+        [options]="roles"
+        placeholder="Select role"
+        [required]="true"
+      />
 
-    <app-form-field
-      [form]="userForm"
-      controlName="role"
-      label="Role"
-      type="dropdown"
-      [options]="roles"
-      placeholder="Select role"
-      [required]="true"
-    />
+      <!-- Locations -->
+      <app-multiselect
+        [form]="userForm"
+        controlName="locations"
+        label="Locations"
+        type="multiselect"
+        [options]="locations"
+        placeholder="Select locations"
+        [required]="true"
+      />
 
-    <app-form-field
-      [form]="userForm"
-      controlName="locations"
-      label="Locations"
-      type="multiselect"
-      [options]="locations"
-      placeholder="Select locations"
-      [required]="true"
-    />
+      <!-- Password -->
+      <app-password
+        [form]="userForm"
+        controlName="password"
+        label="Password"
+        type="password"
+        placeholder="Enter password"
+        [required]="true"
+      />
 
-    <app-form-field
-      [form]="userForm"
-      controlName="notes"
-      label="Notes"
-      type="text"
-      placeholder="Additional notes"
-    />
+      <div class="md:col-span-3">
+        <app-textarea
+          [form]="userForm"
+          controlName="notes"
+          label="Notes"
+          placeholder="Additional notes"
+          [required]="true"
+        />
+      </div>
+    </div>
 
+    <!-- Actions -->
     <div class="flex justify-end pt-2">
       <button
         pButton
