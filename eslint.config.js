@@ -34,12 +34,9 @@ module.exports = defineConfig([
       '@angular-eslint/prefer-inject': 'off',
     },
   },
-  // {
-  //   files: ['**/*.html'],
-  //   extends: [
-  //     angular.configs.templateRecommended,
-  //     angular.configs.templateAccessibility,
-  //   ],
-  //   rules: {},
-  // },
+  {
+    files: ['**/*.html'],
+    extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
+    rules: {},
+  },
 ]);
