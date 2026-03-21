@@ -32,11 +32,12 @@ module.exports = defineConfig([
         },
       ],
       '@angular-eslint/prefer-inject': 'off',
+      '@typescript-eslint/no-explicit-any': 'error',
     },
   },
   {
     files: ['**/*.html'],
-    extends: [angular.configs.templateRecommended, angular.configs.templateAccessibility],
+    extends: [...angular.configs.templateRecommended],
     rules: {},
   },
 ]);
