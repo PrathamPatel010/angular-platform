@@ -38,6 +38,6 @@ module.exports = defineConfig([
   {
     files: ['**/*.html'],
     extends: [...angular.configs.templateRecommended],
-    rules: {},
+    rules: { '@angular-eslint/template/prefer-control-flow': 'off' },
   },
 ]);

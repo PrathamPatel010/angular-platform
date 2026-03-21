@@ -1,0 +1,10 @@
+<button
+  pButton
+  [label]="label"
+  [icon]="loading ? 'pi pi-spin pi-spinner' : icon"
+  [severity]="severity"
+  [outlined]="variant === 'outlined'"
+  [text]="variant === 'text'"
+  [disabled]="disabled || loading"
+  (click)="handleClick()"
+></button>

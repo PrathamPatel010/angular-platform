@@ -4,13 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UiStateService {
-  private loadingSubject = false;
-
-  setLoading(isLoading: boolean): void {
-    this.loadingSubject = isLoading;
-  }
-
-  getLoading(): boolean {
-    return this.loadingSubject;
-  }
+  isBtnLoading = false;
+  isPageLoading = false;
+  isGridLoading = false;
 }
