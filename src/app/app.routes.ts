@@ -17,9 +17,14 @@ export const routes: Routes = [
           import('./features/dashboard/dashboard.component').then((c) => c.DashboardComponent),
       },
       {
-        path: 'masters',
-        loadChildren: () =>
-          import('./features/master/master-routing.module').then((m) => m.MasterRoutingModule),
+        path: 'search-stations',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard.component').then((c) => c.DashboardComponent),
+      },
+      {
+        path: 'my-bookings',
+        loadComponent: () =>
+          import('./features/dashboard/dashboard.component').then((c) => c.DashboardComponent),
       },
     ],
   },

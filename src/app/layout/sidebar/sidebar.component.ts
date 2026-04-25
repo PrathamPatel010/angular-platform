@@ -21,48 +21,19 @@ export class SidebarComponent implements OnInit {
     this.items = [
       {
         label: 'Dashboard',
-        icon: 'pi pi-home',
+        icon: 'pi pi-th-large',
         link: '/dashboard',
       },
       {
-        label: 'Masters',
-        icon: 'pi pi-database',
-        items: [
-          {
-            label: 'Users',
-            icon: 'pi pi-users',
-            link: '/masters/users',
-          },
-          {
-            label: 'Products',
-            icon: 'pi pi-box',
-            link: '/masters/products',
-          },
-        ],
+        label: 'Search Stations',
+        icon: 'pi pi-search',
+        link: '/search-stations',
+      },
+      {
+        label: 'My Bookings',
+        icon: 'pi pi-calendar',
+        link: '/my-bookings',
       },
     ];
-  }
-
-  // User dropdown menu
-  isUserMenuOpen = false;
-  userMenuItems: MenuItem[] = [
-    {
-      label: 'Settings',
-      icon: 'pi pi-cog',
-      routerLink: '/settings',
-    },
-    {
-      label: 'Logout',
-      icon: 'pi pi-sign-out',
-      command: () => this.logout(),
-    },
-  ];
-
-  toggleUserMenu(event: Event): void {
-    this.userMenu.toggle(event);
-  }
-
-  logout(): void {
-    console.log('Logout clicked');
   }
 }

@@ -1,31 +1,68 @@
 <aside class="flex h-screen w-60 flex-col border-r bg-white">
-  <!-- 1️⃣ Logo / App Name -->
-  <div class="flex h-14 items-center border-b px-4 text-lg font-semibold">MyApp</div>
+  <!-- Logo -->
+  <div class="flex h-14 items-center border-b px-4">
+    <svg
+      width="140"
+      height="40"
+      viewBox="0 0 140 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- Icon background -->
+      <rect width="40" height="40" rx="10" fill="#0ea5e9" />
 
-  <!-- 2️⃣ Navigation (scrollable) -->
-  <div class="flex-1 overflow-y-auto px-1 py-3">
+      <!-- Strong, centered lightning -->
+      <path
+        d="M21 6
+       L13 21
+       H20
+       L17 34
+       L27 16
+       H20
+       L21 6Z"
+        fill="white"
+      />
+
+      <!-- Wordmark -->
+      <text
+        x="52"
+        y="26"
+        fill="#0f172a"
+        style="
+          font-family:
+            Inter,
+            Segoe UI,
+            sans-serif;
+          font-weight: 700;
+          font-size: 20px;
+          letter-spacing: -0.3px;
+        "
+      >
+        VoltFlow
+      </text>
+    </svg>
+  </div>
+
+  <!-- Navigation -->
+  <div class="flex-1 overflow-y-auto px-2 py-3">
     <p-panelMenu [model]="items" class="w-full border-none p-0">
       <ng-template #item let-item>
         <a
           pRipple
-          class="flex w-full items-center gap-2 rounded-md px-3 py-2 transition-colors"
+          class="flex w-full items-center gap-3 rounded-md px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-100"
           [routerLink]="item.link"
-          routerLinkActive="bg-gray-100 font-medium"
+          routerLinkActive="bg-gray-100 text-cyan-600 font-medium"
           [routerLinkActiveOptions]="{ exact: true }"
         >
-          <!-- Left icon -->
-          <i *ngIf="item.icon" [class]="item.icon + ' text-gray-500'"></i>
+          <i *ngIf="item.icon" [class]="item.icon + ' text-sm text-gray-500'"></i>
 
-          <!-- Label -->
-          <span class="text-sm">{{ item.label }}</span>
+          <span>{{ item.label }}</span>
 
-          <!-- Spacer -->
           <span class="flex-1"></span>
 
-          <!-- Chevron (only if children exist) -->
           <i
             *ngIf="item.items?.length"
-            class="pi text-xs text-gray-400 transition-transform duration-200"
+            class="pi text-xs text-gray-400"
             [ngClass]="{
               'pi-chevron-down': item.expanded,
               'pi-chevron-right': !item.expanded,
@@ -34,40 +71,5 @@
         </a>
       </ng-template>
     </p-panelMenu>
-  </div>
-
-  <!-- 3️⃣ User section (fixed bottom) -->
-  <div class="relative border-t p-3">
-    <button
-      type="button"
-      class="flex w-full items-center gap-3 rounded-md px-2 py-2 hover:bg-gray-100"
-      (click)="toggleUserMenu($event)"
-    >
-      <img src="https://i.pravatar.cc/32" alt="User" class="h-8 w-8 rounded-full" />
-
-      <div class="flex flex-1 flex-col text-left">
-        <span class="text-sm font-medium">John Doe</span>
-        <span class="text-xs text-gray-500">Administrator</span>
-      </div>
-
-      <!-- Chevron on the right -->
-      <i
-        class="pi text-xs text-gray-400 transition-transform duration-200"
-        [ngClass]="{
-          'pi-chevron-down': isUserMenuOpen,
-          'pi-chevron-up': !isUserMenuOpen,
-        }"
-      ></i>
-    </button>
-
-    <!-- PrimeNG menu -->
-    <p-menu
-      #userMenu
-      [model]="userMenuItems"
-      [popup]="true"
-      appendTo="body"
-      (onShow)="isUserMenuOpen = true"
-      (onHide)="isUserMenuOpen = false"
-    ></p-menu>
   </div>
 </aside>
