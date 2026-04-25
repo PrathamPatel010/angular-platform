@@ -1,5 +1,73 @@
-<header class="flex h-14 items-center border-b bg-white px-4">
-  <h1 class="text-lg font-medium text-gray-800">
+<header class="flex h-14 items-center justify-between border-b bg-white px-4">
+  <!-- Left: Page Title -->
+  <!-- <h1 class="text-lg font-medium text-gray-800">
     {{ commonService.localStorageService.get('currentPage') }}
-  </h1>
+  </h1> -->
+
+  <!-- Right: User Menu -->
+  <div class="relative ml-auto">
+    <!-- Trigger -->
+    <button
+      type="button"
+      class="flex items-center gap-2 rounded-md bg-gray-100 px-2 py-1 transition hover:bg-gray-200"
+      (click)="userPopover.toggle($event)"
+    >
+      <div>
+        <p class="text-sm font-semibold text-gray-800">John Doe</p>
+      </div>
+      <!-- Avatar -->
+      <img src="https://i.pravatar.cc/36" alt="User" class="h-9 w-9 rounded-full" />
+
+      <!-- Chevron -->
+      <i
+        class="pi text-xs text-gray-500 transition-transform duration-200"
+        [ngClass]="{
+          'pi-chevron-down': !isUserMenuOpen,
+          'pi-chevron-up': isUserMenuOpen,
+        }"
+      ></i>
+    </button>
+
+    <!-- Popover -->
+    <p-popover
+      #userPopover
+      (onShow)="isUserMenuOpen = true"
+      (onHide)="isUserMenuOpen = false"
+      styleClass="p-0 overflow-hidden rounded-xl shadow-xl border border-gray-200"
+    >
+      <!-- User Header -->
+      <div class="min-w-[240px] bg-gray-50 px-4 py-4">
+        <!-- Name -->
+        <p class="text-sm font-semibold text-gray-800">John Doe</p>
+
+        <!-- Email -->
+        <p class="mt-1 text-xs text-gray-500">john.doe&#64;email.com</p>
+
+        <!-- Role (Only if Admin) -->
+        <p
+          *ngIf="userRole === 'Admin'"
+          class="mt-2 inline-block rounded-md bg-blue-100 px-2 py-1 text-[11px] font-medium text-blue-700"
+        >
+          Administrator
+        </p>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t"></div>
+
+      <!-- Menu Items -->
+      <div class="py-2">
+        <button
+          *ngFor="let item of userMenuItems"
+          type="button"
+          class="flex w-full items-center gap-3 px-4 py-2 text-sm text-gray-700 transition hover:bg-gray-100"
+          (click)="item.command?.({ originalEvent: $event, item: item }); userPopover.hide()"
+        >
+          <i *ngIf="item.icon" [class]="item.icon + ' text-gray-500'"></i>
+
+          <span>{{ item.label }}</span>
+        </button>
+      </div>
+    </p-popover>
+  </div>
 </header>
